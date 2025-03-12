@@ -1,13 +1,21 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import TodoContext from "../context/TodoContext";
 
-const Form=({addTodo,edit})=>{
-  console.log(edit)
+const Form=()=>{
+
+  const {addTodo,edit,updatedTodo}=useContext(TodoContext)
+  // console.log(edit)
      
    let [text,settext]=useState("")
 
     const handle=(e)=>{
          e.preventDefault();
-        addTodo(text)
+         if(edit.isedit===false){
+           addTodo(text)
+         }
+         else{
+          updatedTodo(edit.todo.id,text)
+         }
         settext("")
     };
     useEffect(()=>{

@@ -1,13 +1,15 @@
+import { useContext } from "react"
 import ListItem from "./ListItem"
+import TodoContext from "../context/TodoContext"
 // import Form from "./ListItem"
-const Listgroup=({todo,removeTodo,editTodo})=>{
-    
+const Listgroup=()=>{
+    const {todo}=useContext(TodoContext)
 return(
     <>
      <ul className='list-group my-2'>
        {
         todo.map((todo)=>(
-            <ListItem  key={todo.Id} todo={todo} removeTodo={removeTodo} editTodo={editTodo} />
+            <ListItem  key={todo.Id} todo={todo}  />
             
         ))
     }

@@ -1,5 +1,9 @@
-const ListItem=({todo,removeTodo ,editTodo})=>{
-    console.log(editTodo)
+import { useContext } from "react"
+import TodoContext from "../context/TodoContext"
+
+const ListItem=({todo})=>{
+    // console.log(editTodo)
+    const {removeTodo,editTodo}=useContext(TodoContext)
     return(
         <>
         <li className='list-group-item rounded-0'>
